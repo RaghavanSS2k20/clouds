@@ -51,7 +51,7 @@ const Cloud: React.FC<CarouselData> = ({ cloud, time, type,index  }) => {
       flexDirection: 'row',
       //justifyContent: 'space-evenly',
       //height: cloudHeight, // Set the height dynamically
-      width: RFValue(310),
+      width: RFValue(300),
     },
     TimeText: {
       fontSize: RFValue(30),
