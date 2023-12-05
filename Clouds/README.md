@@ -1,5 +1,6 @@
 
-![clouds](https://github.com/RaghavanSS2k20/clouds/assets/76263002/0aa8279c-a55b-462b-83e8-658dad30372d)
+
+![clouds](https://github.com/RaghavanSS2k20/clouds/assets/76263002/0b8ad27f-ea47-432a-bc7e-b82fd8ce4801)
 
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
