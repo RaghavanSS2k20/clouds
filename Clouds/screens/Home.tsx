@@ -8,7 +8,7 @@ import SectionHeader from "../components/SectionHeader";
 import Carousel, {Pagination} from 'react-native-snap-carousel';
 import { RFValue } from "react-native-responsive-fontsize";
 import { PanGestureHandler, State } from "react-native-gesture-handler";
-import Animated from "react-native-reanimated";
+
 import { horizontalScale,verticalScale , moderateScale} from "../helpers/Metrics";
 import Cloud from "../components/Cloud";
 const SLIDER_WIDTH = Dimensions.get('window').width + 5
@@ -23,16 +23,12 @@ interface Props {
 const HomeScreen: React.FC<Props> = ({ navigation }) => {
   const isCarousel = React.useRef(null)
   const [index, setIndex] = React.useState(0)
-  const onGestureEvent = Animated.event([{ nativeEvent: { translationX: panX } }], {
-    useNativeDriver: false,
-  });
+  
+const handleSwipeRoght = (event:any)=>{
 
-  const onHandlerStateChange = ({ nativeEvent }) => {
-    if (nativeEvent.state === State.END && nativeEvent.translationX < -50) {
-      // Swipe left
-      navigation.navigate('Next'); // Navigate to the NextScreen
-    }
-  };
+  
+}
+  
   const dataArray = [
     { cloud: "Cumulus", time: "10:00 AM", type: "Fluffy" },
     { cloud: "Stratus", time: "02:30 PM", type: "Layered" },
@@ -40,7 +36,15 @@ const HomeScreen: React.FC<Props> = ({ navigation }) => {
     // Add more entries as needed
   ];
   return (
-   <ScrollView showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false}>
+    <PanGestureHandler   onHandlerStateChange={({ nativeEvent }) => {
+      if (nativeEvent.state === State.END && nativeEvent.translationX < -50) {
+        navigation.navigate('AnalysisScreen');
+      }
+    }}
+    activeOffsetX={[-10, 10]} 
+    >
+      
+   <ScrollView showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false} >
       <LandingHeader navigation={{}}/>
       <View style={styles.metabarContainer}>
         <LinearGradient
@@ -134,6 +138,8 @@ const HomeScreen: React.FC<Props> = ({ navigation }) => {
       
      
    </ScrollView>
+   
+   </PanGestureHandler>
   );
 };
 const styles = StyleSheet.create({
