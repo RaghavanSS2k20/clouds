@@ -4,6 +4,7 @@ import HomeScreen from "../../screens/Home";
 import DraftsScreen from "../../screens/Drafts";
 import SearchScreen from "../../screens/Search";
 import SettingScreen from "../../screens/Settings";
+import Addscreen from "../../screens/AddScreen";
 import LinearGradient from "react-native-linear-gradient";
 import { CustomAddButton } from "../CustomAddButton";
 import { SearchSVGComponent, DraftsSVGComponent, HomeSVGComponent, SettingsSVGComponent, AddSVGComponent } from "../../assets/Icons/SVG";
@@ -31,7 +32,7 @@ const Tabs = ()=>{
            
         }}
                   >
-            <Tab.Screen name="Home" component={HomeScreen} options={{
+            <Tab.Screen name="Home"  component={HomeScreen} options={{
                 headerShown:false,
                 tabBarIcon:({focused})=>{
                      {
@@ -60,7 +61,7 @@ const Tabs = ()=>{
                 }
             }}
             />
-            <Tab.Screen name="Settings" component={SettingScreen}
+            <Tab.Screen name="Today" component={Addscreen}
             options={{
                 tabBarIcon:({focused})=>(
                     focused ?(
@@ -73,7 +74,23 @@ const Tabs = ()=>{
                 ),
                 tabBarButton:(props)=>(
                     <CustomAddButton {...props}/>
-                )
+                ),
+                tabBarStyle:{display:'none'},
+                cardStyleInterpolator: ({ current, layouts }) => {
+                    return {
+                      cardStyle: {
+                        transform: [
+                          {
+                            translateX: current.progress.interpolate({
+                              inputRange: [0, 1],
+                              outputRange: [-layouts.screen.width, 0],
+                            }),
+                          },
+                        ],
+                      },
+                    };
+                  },
+                
 
                 
             }}

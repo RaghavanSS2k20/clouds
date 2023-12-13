@@ -38,7 +38,10 @@ const handleSwipeRoght = (event:any)=>{
   return (
     <PanGestureHandler   onHandlerStateChange={({ nativeEvent }) => {
       if (nativeEvent.state === State.END && nativeEvent.translationX < -50) {
-        navigation.navigate('AnalysisScreen');
+        navigation.navigate('Analysis');
+      }
+      else if(nativeEvent.state === State.END && nativeEvent.translationX > -50){
+        navigation.navigate('Today')
       }
     }}
     activeOffsetX={[-10, 10]} 
@@ -124,7 +127,7 @@ const handleSwipeRoght = (event:any)=>{
          <Cloud cloud="adore a puppy through his eyes. This  World" type="good"/>  
         </View>  
         <View style={{margin:'2%'}}>
-         <Cloud cloud="We start charging your payment method at the time of purchase. If you set up your domain for automatic renewal, we renew your domain 7 days before the annual renewal date and charge your payment method at the beginning of the following month.After your free trial ends and your paid subscription starts, we charge your payment method at the beginning of the following month. If your paid service starts in May, for example, we charge you at the beginning of June. After that, charges continue automatically at the beginning of each month." type="good"/>  
+         <Cloud cloud="Hello  charging your payment method at the time  of purchase. If you set up your domain for automatic renewal, we renew your domain 7 days before the annual renewal date and charge your payment method at the beginning of the following month.After your free trial ends and your paid subscription starts, we charge your payment method at the beginning of the following month. If your paid service starts in May, for example, we charge you at the beginning of June. After that, charges continue automatically at the beginning of each month." type="good"/>  
         </View>    
         <View style={{margin:'2%'}}>
          <Cloud cloud="adore " type="good"/>  

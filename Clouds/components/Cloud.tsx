@@ -21,6 +21,9 @@ const Cloud: React.FC<CarouselData> = ({ cloud, time, type,index  }) => {
         else if(type==="bad"){
             return("#E44624")
         }
+        else{
+          return("#5FD4EE")
+        }
     }
 
     const getAesthetic = (type:String)=>{
@@ -33,6 +36,10 @@ const Cloud: React.FC<CarouselData> = ({ cloud, time, type,index  }) => {
       else if(type === "bad"){
         return("rgba(228, 70, 36,0.1)")
        
+      }
+      else{
+        return("rgba(95, 212, 238,0.1)")
+
       }
     }
   const [cloudHeight, setCloudHeight] = useState(200);

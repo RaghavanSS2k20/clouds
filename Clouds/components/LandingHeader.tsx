@@ -8,11 +8,15 @@ interface Props {
 
 const LandingHeader:React.FC<Props>=({navigation})=>{
     const handleSearchPress = ()=>{
-        console.log("Presse")
+      console.log("Hioi")
+    }
+
+    const handlePRofile = ()=>{
+      navigation.navigate("")
     }
     return(
        <View style={styles.headerContainer}>
-          <View style={{padding:'2%'}}>
+        <View style={{padding:'2%'}} >
         <Text style={styles.headerText}>Good Morning</Text>
         <Text style={styles.userNameText}>Raghavan M</Text>
       </View>
