@@ -46,7 +46,7 @@ const handleSwipeRoght = (event:any)=>{
     }}
     activeOffsetX={[-10, 10]} 
     >
-      
+      <View>
    <ScrollView showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false} >
       <LandingHeader navigation={{}}/>
       <View style={styles.metabarContainer}>
@@ -112,25 +112,25 @@ const handleSwipeRoght = (event:any)=>{
       <View style={styles.daysContainer}>
         <SectionHeader headerText="Days Tracked" rightElement={<></>} />
         <View style={{margin:'2%'}}>
-          <Cloud cloud="adore a puppy through his eyes. This  World and hence its beautiful the world is great with mani as a good puopy " type="bad"/>
+          <Cloud cloud="adore a puppy through his eyes. This  World and hence its beautiful the world is great with mani as a good puopy " type="bad" isDay={true}/>
         </View>
         <View style={{margin:'2%'}}>
-         <Cloud cloud="After your free trial ends and your paid subscription starts, we charge your payment method at the beginning of the following month. If your paid service starts in May, for example, we charge you at the beginning of June. After that, charges continue automatically at the beginning of each month." type="neutral"/>  
+         <Cloud cloud="After your free trial ends and your paid subscription starts, we charge your payment method at the beginning of the following month. If your paid service starts in May, for example, we charge you at the beginning of June. After that, charges continue automatically at the beginning of each month." type="neutral" isDay={true}/>  
         </View>
         <View style={{margin:'2%'}}>
-         <Cloud cloud="adore a puppy through his eyes. This  World" type="good"/>  
+         <Cloud cloud="adore a puppy through his eyes. This  World" type="good" isDay={true}/>  
         </View>  
         <View style={{margin:'2%'}}>
-         <Cloud cloud="adore a puppy through his eyes. This  World" type="good"/>  
+         <Cloud cloud="adore a puppy through his eyes. This  World" type="good" isDay={true}/>  
         </View>  
         <View style={{margin:'2%'}}>
-         <Cloud cloud="adore a puppy through his eyes. This  World" type="good"/>  
+         <Cloud cloud="adore a puppy through his eyes. This  World" type="good" isDay={true}/>  
         </View>  
         <View style={{margin:'2%'}}>
-         <Cloud cloud="Hello  charging your payment method at the time  of purchase. If you set up your domain for automatic renewal, we renew your domain 7 days before the annual renewal date and charge your payment method at the beginning of the following month.After your free trial ends and your paid subscription starts, we charge your payment method at the beginning of the following month. If your paid service starts in May, for example, we charge you at the beginning of June. After that, charges continue automatically at the beginning of each month." type="good"/>  
+         <Cloud cloud="Hello  charging your payment method at the time  of purchase. If you set up your domain for automatic renewal, we renew your domain 7 days before the annual renewal date and charge your payment method at the beginning of the following month.After your free trial ends and your paid subscription starts, we charge your payment method at the beginning of the following month. If your paid service starts in May, for example, we charge you at the beginning of June. After that, charges continue automatically at the beginning of each month." type="good" isDay={true}/>  
         </View>    
         <View style={{margin:'2%'}}>
-         <Cloud cloud="adore " type="good"/>  
+         <Cloud cloud="adore " type="good" isDay={true}/>  
         </View>    
         
 
@@ -141,7 +141,8 @@ const handleSwipeRoght = (event:any)=>{
       
      
    </ScrollView>
-   
+   <LinearGradient colors={['rgba(0,0,0,0)', 'rgba(0,0,0,0.7)']} style={styles.gradientOverlay} />
+   </View>
    </PanGestureHandler>
   );
 };
@@ -159,6 +160,14 @@ const styles = StyleSheet.create({
     alignItems:'center',
     margin:'2%',
     
+  },
+  gradientOverlay: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    height: 160,
+    zIndex:2
   },
   metricsHeader:{
     display:'flex',

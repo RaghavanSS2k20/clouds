@@ -3,14 +3,16 @@ import { View, StyleSheet, Text, Dimensions } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import { moderateScale, horizontalScale, verticalScale } from "../helpers/Metrics";
 import { RFValue } from "react-native-responsive-fontsize";
+import { formatDay, formatTime } from "../helpers/helpers";
 interface CarouselData {
   cloud?: string;
-  time?: string;
+  time?: Date;
   type?: string;
-index?:any
+index?:any;
+isDay?:boolean
 }
 
-const Cloud: React.FC<CarouselData> = ({ cloud, time, type,index  }) => {
+const Cloud: React.FC<CarouselData> = ({ cloud, time, type,index, isDay  }) => {
     const getColor = (type:string)=>{
         if(type === "good"){
             return("#43DD5C")
@@ -101,7 +103,7 @@ const Cloud: React.FC<CarouselData> = ({ cloud, time, type,index  }) => {
 
       
           
-          <Text style={styles.dateText}>30th August, 2023</Text>
+        <Text style={styles.dateText}>{isDay?formatDay(new Date()):formatTime(new Date())}</Text>
         </View>
       
     </LinearGradient>

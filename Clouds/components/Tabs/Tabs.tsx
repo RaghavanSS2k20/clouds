@@ -1,5 +1,7 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { StyleSheet } from "react-native";
 const Tab = createBottomTabNavigator();
+import { RFValue } from "react-native-responsive-fontsize";
 import HomeScreen from "../../screens/Home";
 import DraftsScreen from "../../screens/Drafts";
 import SearchScreen from "../../screens/Search";
@@ -9,6 +11,7 @@ import LinearGradient from "react-native-linear-gradient";
 import { CustomAddButton } from "../CustomAddButton";
 import { SearchSVGComponent, DraftsSVGComponent, HomeSVGComponent, SettingsSVGComponent, AddSVGComponent } from "../../assets/Icons/SVG";
 import { moderateScale, verticalScale, horizontalScale } from "../../helpers/Metrics";
+import { TransitionPresets } from "@react-navigation/stack";
 const Tabs = ()=>{
     return(
         <Tab.Navigator
@@ -76,21 +79,9 @@ const Tabs = ()=>{
                     <CustomAddButton {...props}/>
                 ),
                 tabBarStyle:{display:'none'},
-                cardStyleInterpolator: ({ current, layouts }) => {
-                    return {
-                      cardStyle: {
-                        transform: [
-                          {
-                            translateX: current.progress.interpolate({
-                              inputRange: [0, 1],
-                              outputRange: [-layouts.screen.width, 0],
-                            }),
-                          },
-                        ],
-                      },
-                    };
-                  },
-                
+                headerStyle:style.headerStyle,
+                headerTitleStyle:style.headerTitileStyle,
+                headerTitleContainerStyle:{padding:'2%'},
 
                 
             }}
@@ -150,3 +141,19 @@ const Tabs = ()=>{
     )
 }
 export default Tabs
+
+const style =  StyleSheet.create({
+    headerStyle:{
+        backgroundColor:"#303030",
+        shadowColor:'transparent',
+        // height:verticalScale(50),
+        elevation:0
+       
+      },
+      headerTitileStyle:{
+         fontFamily:'Poppins-Bold',
+        fontSize:RFValue(15),
+        color:'#5FD4EE',
+      }
+        
+})
